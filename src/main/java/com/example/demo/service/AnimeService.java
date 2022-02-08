@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entity.Anime;
+import com.example.demo.entity.AnimeCondition;
 import com.example.demo.mapper.AnimeMapper;
 
 @Service // ServiceとしてDIに登録
@@ -22,4 +23,14 @@ public class AnimeService {
 	public List<Anime> getAnimeList() {
 		return mapper.selectAll();
 	}
+
+	/**
+	 * アニメリストを条件で検索する。
+	 * 
+	 * @return アニメリスト
+	 */
+	public List<Anime> searchAnimeListByCondition(AnimeCondition condition) {
+		return mapper.selectByCondition(condition);
+	}
+
 }
